@@ -18,7 +18,8 @@ public class main {
         int t = 1;
         for (int i = 0; i <= 3200; i += 100) {
 
-                Document page = Jsoup.connect("https://www.medica-tradefair.com/vis-api/vis/v1/en/search/slice?oid=80396&lang=2&_query=&f_type=profile&f_event=medcom2021.MEDICA&_compact=true&_start=0&_rows=" + i)
+                int s = (i == 0 ) ? 0 : i - 100;
+                Document page = Jsoup.connect("https://www.medica-tradefair.com/vis-api/vis/v1/en/search/slice?oid=80396&lang=2&_query=&f_type=profile&f_event=medcom2021.MEDICA&_compact=true&_start=" + s + "&_rows=" + i)
                         .header("Sec-Fetch-Dest", "empty")
                         .header("Sec-Fetch-Mode", "cors")
                         .header("Sec-Fetch-Site", "same-origin")
